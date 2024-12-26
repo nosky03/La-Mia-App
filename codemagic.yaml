@@ -24,9 +24,9 @@ workflows:
         script: |
           echo "Esportazione del file .ipa..."
           xcodebuild -exportArchive \
-          -archivePath build/ios/archive.xcarhive \
-          -exportPath build/ios/output \
-          -exportOptionsPlist exportOptions.plist
+                     -archivePath build/ios/archive.xcarhive \
+                     -exportPath build/ios/output \
+                     -exportOptionsPlist exportOptions.plist
     artifacts:
       - build/ios/output/*.ipa
     publishing:
