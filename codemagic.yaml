@@ -3,6 +3,8 @@ workflows:
     name: iOS Workflow
     max_build_duration: 60
     environment:
+      xcode: latest
+      flutter: stable
       vars:
         XCODE_PROJECT: "Main.swift"
         XCODE_SCHEME: "App"
@@ -11,6 +13,7 @@ workflows:
         script: |
           echo "Installazione delle dipendenze..."
           brew install cocoapods
+          cd ios
           pod install
       - name: Build for iOS
         script: |
@@ -20,9 +23,9 @@ workflows:
                      -sdk iphoneos \
                      -archivePath build/ios/archive.xcarchive \
                      clean archive
-      - name: Export .ipa
+      - name: Export IPA
         script: |
-          echo "Esportazione del file .ipa..."
+          echo "Esportazione del file IPA..."
           xcodebuild -exportArchive \
                      -archivePath build/ios/archive.xcarhive \
                      -exportPath build/ios/output \
