@@ -15,4 +15,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - ivan.barby@icloud.co
+          - ivan.barby@icloud.com
