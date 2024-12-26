@@ -7,11 +7,28 @@ workflows:
         XCODE_PROJECT: "Main.swift"
         XCODE_SCHEME: "App"
     scripts:
-      - name: Build
+      - name: Install dependencies
+        script: |
+          echo "Installazione delle dipendenze..."
+          brew install cocoapods
+          pod install
+      - name: Build for iOS
         script: |
           echo "Compilazione in corso..."
+          xcodebuild -workspace $XCODE_PROJECT.xcworkspace \
+                     -scheme $XCODE_SCHEME \
+                     -sdk iphoneos \
+                     -archivePath build/ios/archive.xcarchive \
+                     clean archive
+      - name: Export .ipa
+        script: |
+          echo "Esportazione del file .ipa..."
+          xcodebuild -exportArchive \
+          -archivePath build/ios/archive.xcarhive \
+          -exportPath build/ios/output \
+          -exportOptionsPlist exportOptions.plist
     artifacts:
-      - build/ios
+      - build/ios/output/*.ipa
     publishing:
       email:
         recipients:
