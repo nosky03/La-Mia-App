@@ -2,14 +2,14 @@ workflows:
   ios:
     name: iOS Workflow
     max_build_duration: 60
-    enviroment:
+    environment:
       vars:
         XCODE_PROJECT: "Main.swift"
         XCODE_SCHEME: "App"
     scripts:
       - name: Build
         script: |
-          echo "Compilazionein corso..."
+          echo "Compilazione in corso..."
     artifacts:
       - build/ios
     publishing:
