@@ -1,0 +1,6 @@
+platform :ios, '11.0'
+
+target 'La-Mia-App' do
+  use_frameworks!
+
+end
