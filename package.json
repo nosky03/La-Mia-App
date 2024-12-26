@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cocoapods": "^0.0.0",
+    "pod": "^0.9.0"
+  }
+}
