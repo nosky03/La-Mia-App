@@ -1,0 +1,18 @@
+workflows:
+  ios:
+    name: iOS Workflow
+    max_build_duration: 60
+    enviroment:
+      vars:
+        XCODE_PROJECT: "Main.swift"
+        XCODE_SCHEME: "App"
+    scripts:
+      - name: Build
+        script: |
+          echo "Compilazionein corso..."
+    artifacts:
+      - build/ios
+    publishing:
+      email:
+        recipients:
+          - ivan.barby@icloud.com
