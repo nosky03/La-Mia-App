@@ -1,6 +1,10 @@
-{pkgs}: {
-  deps = [
-    pkgs.vim
-    pkgs.cocoapods
-  ];
+{
+  allowUnsupportedSystem = true;
+  
+  pkgs: {
+    deps = [
+      pkgs.vim
+      pkgs.cocoapods
+    ];
+  }
 }
